@@ -17,17 +17,15 @@ form.addEventListener("submit", async (login) => {
     const data = await response.json();
 
     if (!response.ok) {
-      errorMessage.textContent = data.message || "Identifiants incorrects";
+      errorMessage.textContent = "Identifiants incorrects";
       return;
     }
 
     // Stocker le token
     localStorage.setItem("token", data.token);
 
-
-
     // Redirection vers la page admin
-    window.location.href = "admin.html";
+    window.location.href = "index.html";
 
   } catch (error) {
     errorMessage.textContent = "Erreur de connexion au serveur";
